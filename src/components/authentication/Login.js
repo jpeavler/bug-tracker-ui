@@ -17,11 +17,12 @@ export default function Login() {
             setError("");
             setLoading(true);
             await login(emailRef.current.value, passwordRef.current.value);
+            setLoading(false);
             history.push('/');
         } catch(error) {
             setError('Failed to login');
+            setLoading(false);
         }
-        setLoading(false);
     }
     return (
         <Fragment>

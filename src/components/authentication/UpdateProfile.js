@@ -29,10 +29,10 @@ export default function UpdateProfile() {
             promises.push(updatePassword(passwordRef.current.value));   //Promise to update the user's password
         }
         Promise.all(promises).then(() => {
+            setLoading(false);
             history.push("/");
         }).catch(() => {
             setError("Failed to update account");
-        }).finally(() => {
             setLoading(false);
         });
     }
