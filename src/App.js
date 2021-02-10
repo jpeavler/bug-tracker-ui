@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import PrivateRoute from "./components/authentication/PrivateRoute";
 import Signup from "./components/authentication/Signup";
 import Login from "./components/authentication/Login";
+import ForgotPassword from "./components/authentication/ForgotPassword";
 import Dashboard from "./components/Dashboard";
 import { AuthProvider } from "./Context/AuthContext";
 
@@ -19,6 +20,7 @@ function App() {
               <PrivateRoute exact path="/" component={Dashboard}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/login" component={Login}/>
+              <Route path="/forgot-password" component={ForgotPassword}/>
             </Switch>
           </AuthProvider>
         </Router>
