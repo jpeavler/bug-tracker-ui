@@ -37,7 +37,7 @@ export default function Login() {
                         </Form.Group>
                         <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} required/>
+                            <Form.Control type="password" ref={passwordRef} autoComplete="off" required/>
                         </Form.Group>
                         <Button disabled={loading} className="w-100" type="submit">Log In</Button>
                     </Form>

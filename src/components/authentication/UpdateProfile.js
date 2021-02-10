@@ -49,11 +49,11 @@ export default function UpdateProfile() {
                         </Form.Group>
                         <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} placeholder="Leave blank to keep the same"/>
+                            <Form.Control type="password" ref={passwordRef} placeholder="Leave blank to keep the same" autoComplete="off"/>
                         </Form.Group>
                         <Form.Group id="password-confirm">
                             <Form.Label>Password Confirm</Form.Label>
-                            <Form.Control type="password" ref={passwordConfirmRef} placeholder="Leave blank to keep the same"/>
+                            <Form.Control type="password" ref={passwordConfirmRef} placeholder="Leave blank to keep the same" autoComplete="off"/>
                         </Form.Group>
                         <Button disabled={loading} className="w-100" type="submit">Update</Button>
                     </Form>
