@@ -17,7 +17,7 @@ export default function Signup() {
         if(passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError("Passwords do not match");
         } else if(passwordRef.current.value.length < 6) {
-            return setError("Password is must be at least 6 charaters long");
+            return setError("Password must be at least 6 charaters long");
         }
         try {
             setError("");
