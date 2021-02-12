@@ -4,10 +4,11 @@ import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from "../../Context/AuthContext";
 
 export default function Signup() {
+    const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const { signup } = useAuth();
+    const { signup, currentUser } = useAuth();
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -22,7 +23,20 @@ export default function Signup() {
         try {
             setError("");
             setLoading(true);
-            await signup(emailRef.current.value, passwordRef.current.value);
+            await signup(emailRef.current.value, passwordRef.current.value).then((response) => {
+                let newUser = {
+                    name : nameRef.current.value,
+                    admin : false,
+                    available : true,
+                    uid : response.user.uid
+                }
+                fetch(`${process.env.REACT_APP_API_URL}/api/users`, {
+                    method: 'POST',
+                    headers: { 'Content-Type' : 'application/json'},
+                    body : JSON.stringify(newUser)
+                });
+            });
+            
             setLoading(false);
             history.push('/');
         } catch(error) {
@@ -37,6 +51,10 @@ export default function Signup() {
                     <h2 className="text-center mb-4">Sign Up</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>
+                        <Form.Group id="name">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" ref={nameRef} required/>
+                        </Form.Group>
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="email" ref={emailRef} required/>
