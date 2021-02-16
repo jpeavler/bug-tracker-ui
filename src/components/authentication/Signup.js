@@ -38,7 +38,7 @@ export default function Signup() {
             });
             
             setLoading(false);
-            history.push('/');
+            history.push('/dashboard');
         } catch(error) {
             setError('Failed to create an account');
             setLoading(false);
