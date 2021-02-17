@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import PrivateRoute from "./components/authentication/PrivateRoute";
+import Home from "./components/Home";
 import Signup from "./components/authentication/Signup";
 import Login from "./components/authentication/Login";
 import ForgotPassword from "./components/authentication/ForgotPassword";
@@ -18,7 +19,8 @@ function App() {
         <Router>
           <AuthProvider>
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+              <Route exact path="/" component={Home}/>
+              <PrivateRoute path="/dashboard" component={Dashboard}/>
               <PrivateRoute path="/update-profile" component={UpdateProfile}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/login" component={Login}/>
