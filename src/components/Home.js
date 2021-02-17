@@ -48,7 +48,7 @@ export default function Home() {
                     {error && <Alert variant="danger" onClose={() => setError("")} dismissible>{error}</Alert>}
                     {message && <Alert variant="success" onClose={() => setMessage("")} dismissible>{message}</Alert>}
                     <Button className="w-100" onClick={handleShow}>Report Bug</Button>
-                    <Modal show={modal} onHide={handleClose}>
+                    <Modal show={modal} onHide={handleClose} animation={false}>
                         <Modal.Header closeButton><h3>Report A Bug</h3></Modal.Header>
                         <Modal.Body>
                             <Form onSubmit={handleSubmit}>
