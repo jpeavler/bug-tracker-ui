@@ -49,6 +49,9 @@ export default function Login() {
             <div className="w-100 text-center mt-2">
                 Need an account? <Link to="/signup">Sign up</Link>
             </div>
+            <div className="w-100 text-center mt-2">
+                <Link to="/">Return to home page</Link>
+            </div>
         </Fragment>
     )
 }
